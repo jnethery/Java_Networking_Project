@@ -1,0 +1,13 @@
+package simple;
+
+public enum RequestType {
+	ADD_CONTACT,
+	SEND_MESSAGE,
+	GET_MESSAGES,
+	LOGIN,
+	REGISTER,
+	LOGOUT,
+	DISCONNECT,
+	VIEW_MESSAGE_LOG,
+	SEARCH;
+}
