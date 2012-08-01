@@ -4,6 +4,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.io.Serializable;
 
+/** Holds a contact destination and contact source and a string representing a chat message
+ * 
+ * @author jnethery
+ *
+ */
 public class Message implements Serializable{
 	
 	/**
@@ -33,6 +38,10 @@ public class Message implements Serializable{
 		minute = Integer.toString(gc.get(Calendar.MINUTE));
 	}
 	
+	/** Returns the message as a string with a timestamp
+	 * 
+	 * @return
+	 */
 	public String getMessage()
 	{
 		String timestamp = hour + ":"
@@ -45,6 +54,10 @@ public class Message implements Serializable{
 				+ "\n" + message;
 	}
 	
+	/** Returns the contact destination for the message
+	 * 
+	 * @return
+	 */
 	public Contact getDestination()
 	{
 		return destination;

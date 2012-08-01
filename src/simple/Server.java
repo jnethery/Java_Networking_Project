@@ -2,10 +2,13 @@ package simple;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
-import java.io.ObjectOutputStream;
 
 /*** RUN SERVER FIRST. SERVER MUST BE RUNNING SO THAT CLIENT CONNECTIONS TO THE SERVER SOCKET CAN TAKE PLACE ***/
+/** A server that accepts client connections
+ * 
+ * @author jnethery
+ *
+ */
 public class Server {
 	public static void main(String[] args)
 	{

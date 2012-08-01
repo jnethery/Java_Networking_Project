@@ -8,11 +8,20 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 
-
 /*** COMMENT OUT THE PROMPTS IN THE INDIVIDUAL METHODS WHEN LINKING METHODS TO GUI ***/
+/** Simple client chat application
+ * 
+ * @author jnethery
+ *
+ */
 public class Client {
 	
-	@SuppressWarnings("unchecked")
+	/** Main function for the client program
+	 * 
+	 * @param args
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException
 	{	
 		boolean clientRunning = true;
@@ -136,6 +145,16 @@ public class Client {
 		clientSocket.close();
 	}
 	
+	/** Logs a user into the database
+	 * 
+	 * @param in
+	 * @param oos
+	 * @param ois
+	 * @param nullAccount
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static boolean Login(BufferedReader in, ObjectOutputStream oos, ObjectInputStream ois, UserAccount nullAccount) throws IOException, ClassNotFoundException
 	{
 		String userName = null;
@@ -155,6 +174,12 @@ public class Client {
 		return (Boolean) ois.readObject();
 	}
 	
+	/** Registers a new user in the database
+	 * 
+	 * @param in
+	 * @param oos
+	 * @throws IOException
+	 */
 	public static void Register(BufferedReader in, ObjectOutputStream oos) throws IOException
 	{
 		UserAccount accountToRegister = null;
@@ -264,6 +289,15 @@ public class Client {
 	}
 	
 	@SuppressWarnings("unchecked")
+	/** Searches for users in the database matching the input parameters
+	 * 
+	 * @param User
+	 * @param oos
+	 * @param ois
+	 * @param in
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static void Search(UserAccount User, ObjectOutputStream oos, ObjectInputStream ois, BufferedReader in) throws IOException, ClassNotFoundException
 	{
 		ArrayList<UserAccount> searchResults = null;
@@ -446,6 +480,12 @@ public class Client {
 		}
 	}
 	
+	/** Gets and prints the user's contact list
+	 * 
+	 * @param User
+	 * @param in
+	 * @throws IOException
+	 */
 	public static void GetContacts(UserAccount User, BufferedReader in) throws IOException
 	{
 		boolean validContactList = false;
@@ -576,6 +616,13 @@ public class Client {
 		}
 	}
 	
+	/** Sends a message to a specified user in the database
+	 * 
+	 * @param in
+	 * @param User
+	 * @param oos
+	 * @throws IOException
+	 */
 	public static void SendMessage(BufferedReader in, UserAccount User, ObjectOutputStream oos) throws IOException
 	{
 		GetContacts(User, in);
@@ -595,6 +642,14 @@ public class Client {
 	}
 	
 	@SuppressWarnings("unchecked")
+	/** Gets and prints the message log for the user from the database
+	 * 
+	 * @param User
+	 * @param oos
+	 * @param ois
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static void GetMessages(UserAccount User, ObjectOutputStream oos, ObjectInputStream ois) throws IOException, ClassNotFoundException
 	{
 		Request getMessagesRequest = new Request(RequestType.GET_MESSAGES, User);
@@ -612,6 +667,12 @@ public class Client {
 		}
 	}
 	
+	/** Logs out the user from the server
+	 * 
+	 * @param oos
+	 * @param User
+	 * @throws IOException
+	 */
 	public static void Logout(ObjectOutputStream oos, UserAccount User) throws IOException
 	{
 		Request LogoutRequest = new Request(RequestType.LOGOUT, User);
@@ -619,6 +680,12 @@ public class Client {
 		oos.flush();
 	}
 	
+	/** Disconnects the user from the server
+	 * 
+	 * @param oos
+	 * @param User
+	 * @throws IOException
+	 */
 	public static void Disconnect(ObjectOutputStream oos, UserAccount User) throws IOException
 	{
 		Request DisconnectRequest = new Request(RequestType.DISCONNECT, User);
@@ -627,6 +694,14 @@ public class Client {
 	}
 	
 	@SuppressWarnings("unchecked")
+	/** Gets the message log from the message database and prints the log to System.out
+	 * 
+	 * @param oos
+	 * @param ois
+	 * @param User
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static void GetMessageLog(ObjectOutputStream oos, ObjectInputStream ois, UserAccount User) throws IOException, ClassNotFoundException
 	{
 		ArrayList<Message> messageLog = null;

@@ -5,6 +5,11 @@ import java.io.*;
 
 /*** USE CREATE DATABASE TO CREATE THE SERVER-SIDE USERACCOUNT DATABASE.
 	THIS DATABASE MUST BE INITIALIZED FOR THE SERVER TO FUNCTION ***/
+/** Used to create a new message log for a server
+ * 
+ * @author jnethery
+ *
+ */
 public class CreateMessageLog {
 	public static void main(String[] args) throws IOException
 	{

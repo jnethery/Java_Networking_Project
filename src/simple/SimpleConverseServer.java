@@ -9,6 +9,11 @@ import java.io.FileOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/** Handles client requests 
+ * 
+ * @author jnethery
+ *
+ */
 public class SimpleConverseServer implements Runnable{
 	
 	private Socket connection;
@@ -303,7 +308,12 @@ public class SimpleConverseServer implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	
+	/** Compares two Contacts to each other
+	 * 
+	 * @param a
+	 * @param b
+	 * @return
+	 */
 	public boolean compareUsers(Contact a, Contact b)
 	{
 		if (a.getPID().equals(b.getPID()))
@@ -316,6 +326,12 @@ public class SimpleConverseServer implements Runnable{
 		}
 	}
 	
+	/** Gets the user database
+	 * 
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public ArrayList<UserAccount> getUserDB() throws IOException, ClassNotFoundException
 	{
 		FileInputStream fromUserDB = null;
@@ -330,6 +346,12 @@ public class SimpleConverseServer implements Runnable{
 		return userDB;
 	}
 	
+	/** Gets the message log database 
+	 * 
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public ArrayList<Message> getMessageLog() throws IOException, ClassNotFoundException
 	{
 		FileInputStream fromMessageLog = null;
@@ -344,6 +366,11 @@ public class SimpleConverseServer implements Runnable{
 		return messageLog;		
 	}
 	
+	/** Updates the message log database
+	 * 
+	 * @param message
+	 * @param mess
+	 */
 	public void updateMessageLog(ArrayList<Message> message, Message mess)
 	{
 		FileOutputStream toDB = null;
@@ -367,6 +394,12 @@ public class SimpleConverseServer implements Runnable{
 		}		
 	}
 	
+	/** Updates the user database
+	 * 
+	 * @param users
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public void updateUserDB(ArrayList<UserAccount> users) throws ClassNotFoundException, IOException
 	{
 		FileOutputStream toDB = null;
@@ -389,6 +422,12 @@ public class SimpleConverseServer implements Runnable{
 		}		
 	}
 	
+	/** Updates a specific user account in the user database
+	 * 
+	 * @param currentUser
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public void updateUserAccount(UserAccount currentUser) throws ClassNotFoundException, IOException
 	{
 		ArrayList<UserAccount> users = getUserDB();

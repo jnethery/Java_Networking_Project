@@ -2,6 +2,11 @@ package simple;
 
 import java.io.Serializable;
 
+/** Stores contact information of a UserAccount
+ * 
+ * @author jnethery
+ *
+ */
 public class Contact implements Serializable{
 	
 	/**
@@ -24,26 +29,46 @@ public class Contact implements Serializable{
 		this.program = program;
 	}
 	
+	/** Gets a user's PID
+	 * 
+	 * @return
+	 */
 	public String getPID()
 	{
 		return PID;
 	}
 	
+	/** Gets a user's first name
+	 * 
+	 * @return
+	 */
 	public String getFirstName()
 	{
 		return firstName;
 	}
 	
+	/** Gets a user's last name
+	 * 
+	 * @return
+	 */
 	public String getLastName()
 	{
 		return lastName;
 	}
 	
+	/** Gets a user's year
+	 * 
+	 * @return
+	 */
 	public Year getYear()
 	{
 		return year;
 	}
 	
+	/** Gets a user's program
+	 * 
+	 * @return
+	 */
 	public Program getProgram()
 	{
 		return program;

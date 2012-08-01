@@ -1,5 +1,10 @@
 package simple;
 
+/** Enumeration of different request types
+ * 
+ * @author jnethery
+ *
+ */
 public enum RequestType {
 	ADD_CONTACT,
 	SEND_MESSAGE,

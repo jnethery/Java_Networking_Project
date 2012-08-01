@@ -1,14 +1,13 @@
 package simple;
 
 import java.util.ArrayList;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.Serializable;
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
 
+/** Holds the user's contact information and their message log and contact list
+ * 
+ * @author jnethery
+ *
+ */
 public class UserAccount implements Serializable{
 	
 	/**
@@ -29,46 +28,83 @@ public class UserAccount implements Serializable{
 		this.password = password;
 	}
 	
+	/** Gets the account's type
+	 * 
+	 * @return
+	 */
 	public AccountType getUserType()
 	{
 		return type;
 	}
 	
+	/** Gets the user's contact information
+	 * 
+	 * @return
+	 */
 	public Contact getContactInfo()
 	{
 		return contactInfo;
 	}
 	
+	/** Return specific user from contact list
+	 * 
+	 * @param pos
+	 * @return
+	 */
 	public Contact getFromContacts(int pos)
 	{
 		return ContactList.get(pos);
 	}
 	
+	/** Returns user's contact list
+	 * 
+	 * @return
+	 */
 	public ArrayList<Contact> getContacts()
 	{
 		return ContactList;
 	}
 	
+	/** Returns user's message log
+	 * 
+	 * @return
+	 */
 	public ArrayList<Message> getMessageLog()
 	{
 		return MessageLog;
 	}
 	
+	/** Returns user's password
+	 * 
+	 * @return
+	 */
 	public String getPassword()
 	{
 		return password;
 	}
 	
+	/** Adds a message to the user's message log
+	 * 
+	 * @param message
+	 */
 	public void addToMessageLog (Message message)
 	{
 		MessageLog.add(message);
 	}
 	
+	/** Overwrites the user's message log
+	 * 
+	 * @param messages
+	 */
 	public void overwriteMessageLog (ArrayList<Message> messages)
 	{
 		this.MessageLog = messages;
 	}
 	
+	/** Adds a contact to the user's contact list
+	 * 
+	 * @param contact
+	 */
 	public void addToContacts(Contact contact)
 	{
 		ContactList.add(contact);

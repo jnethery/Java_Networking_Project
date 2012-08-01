@@ -3,6 +3,11 @@ package simple;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/** A request that gets sent to the server
+ * 
+ * @author jnethery
+ *
+ */
 public class Request implements Serializable{
 	/**
 	 * 
@@ -11,26 +16,15 @@ public class Request implements Serializable{
 
 	private RequestType type;
 
-	//contactlist, src, useracc
 	private UserAccount user;
 	
 	private ArrayList<Object> params = new ArrayList<Object>();
-	//add contact:
-	//Contact contact
-	
 	
 	public Request(RequestType type, UserAccount user)
 	{
 		this.type = type;
 		this.user = user;
 	}
-	//send message:
-	//String message
-	//Contact destination
-	//GregorianCalendar timestamp
-	
-	//login:
-	//String password (md5)
 	
 	/**
 	 * @return the type
