@@ -89,6 +89,16 @@ public class SimpleConverseServer implements Runnable{
 	
 				switch(searchType)
 				{
+				case Type:
+					AccountType typeToSearch = (AccountType) request.getParam(1);
+					for (UserAccount u: userDB)
+					{
+						if (u.getUserType().equals(typeToSearch))
+						{
+							searchResults.add(u);
+						}
+					}
+					break;
 				case Name:
 					String firstNameToSearch = (String) request.getParam(1);
 					String lastNameToSearch = (String) request.getParam(2);
@@ -105,12 +115,33 @@ public class SimpleConverseServer implements Runnable{
 					break;
 				case Year:
 					Year yearToSearch = (Year) request.getParam(1);
+					for (UserAccount u: userDB)
+					{
+						if (u.getContactInfo().getYear().equals(yearToSearch))
+						{
+							searchResults.add(u);
+						}
+					}
 					break;
 				case Program:
 					Program programToSearch = (Program) request.getParam(1);
+					for (UserAccount u: userDB)
+					{
+						if (u.getContactInfo().getProgram().equals(programToSearch))
+						{
+							searchResults.add(u);
+						}
+					}
 					break;
 				case PID:
 					String PIDtoSearch = (String) request.getParam(1);
+					for (UserAccount u: userDB)
+					{
+						if (u.getContactInfo().getPID().equals(PIDtoSearch))
+						{
+							searchResults.add(u);
+						}
+					}
 					break;
 				case ALL:
 					for (UserAccount u: userDB)
